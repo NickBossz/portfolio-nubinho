@@ -1,24 +1,46 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
+import { Hero } from "../components/sections/Hero";
+import { Marquee } from "../components/sections/Marquee";
+import { Showreel } from "../components/sections/Showreel";
+import { Projects } from "../components/sections/Projects";
+import { Filmstrip } from "../components/sections/Filmstrip";
+import { Services } from "../components/sections/Services";
+import { Process } from "../components/sections/Process";
+import { About } from "../components/sections/About";
+import { Skills } from "../components/sections/Skills";
+import { Testimonials } from "../components/sections/Testimonials";
+import { Contact } from "../components/sections/Contact";
+import { FilmGrain } from "../components/effects/FilmGrain";
+import { CustomCursor } from "../components/effects/CustomCursor";
+import { ScrollProgress } from "../components/effects/ScrollProgress";
+import { LoadingScreen } from "../components/effects/LoadingScreen";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative bg-background text-foreground">
+      <LoadingScreen />
+      <FilmGrain />
+      <ScrollProgress />
+      <CustomCursor />
+      <Header />
+      <Hero />
+      <Marquee />
+      <Showreel />
+      <Projects />
+      <Filmstrip />
+      <Services />
+      <Process />
+      <About />
+      <Skills />
+      <Testimonials />
+      <Contact />
+      <Footer />
+    </main>
   );
 }

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Marina Ribeiro",
+    "role": "Criadora de conteúdo",
+    "company": "@marinacria",
+    "text": "O resultado superou tudo. A edição trouxe ritmo, clareza e uma identidade muito mais profissional para o meu canal.",
+    "projectId": "youtube-doc"
+  },
+  {
+    "id": 2,
+    "name": "Carlos Menezes",
+    "role": "Diretor de Marketing",
+    "company": "Nova Athletics",
+    "text": "Ritmo, atenção ao detalhe e um olho editorial raro. Entregou uma campanha que virou referência interna.",
+    "projectId": "campanha-motion"
+  },
+  {
+    "id": 3,
+    "name": "Beatriz Alves",
+    "role": "Produtora Executiva",
+    "company": "Festival Amplitude",
+    "text": "O aftermovie capturou exatamente a energia do evento. Editar assim é traduzir sentimento em imagem.",
+    "projectId": "evento-live"
+  },
+  {
+    "id": 4,
+    "name": "Rafael Torres",
+    "role": "Fundador",
+    "company": "Estúdio Linha",
+    "text": "Profissionalismo do começo ao fim. A pós-produção elevou o projeto a outro nível.",
+    "projectId": "institucional-arq"
+  }
+]

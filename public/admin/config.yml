@@ -2,6 +2,8 @@ backend:
   name: github
   repo: NickBossz/portfolio-nubinho
   branch: main
+  base_url: /api/decap
+  auth_endpoint: auth
   squash_merges: true
 
 media_folder: public/uploads

@@ -29,7 +29,23 @@ https://SEU-DOMINIO/admin/index.html
 ```
 
 O painel Decap abre nessa rota, mas para salvar alteracoes no GitHub ele ainda
-precisa de autenticacao OAuth configurada para o backend GitHub.
+precisa de um OAuth App do GitHub configurado na Vercel.
+
+### Login com GitHub
+
+Crie um OAuth App em GitHub > Settings > Developer settings > OAuth Apps:
+
+- Homepage URL: `https://SEU-DOMINIO`
+- Authorization callback URL: `https://SEU-DOMINIO/api/decap/callback`
+
+Depois adicione estas variaveis no projeto da Vercel:
+
+```text
+GITHUB_OAUTH_CLIENT_ID=client_id_do_github
+GITHUB_OAUTH_CLIENT_SECRET=client_secret_do_github
+```
+
+Depois disso, faca um novo deploy.
 
 ## Conteudo
 

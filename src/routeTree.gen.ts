@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiDecapCallbackRouteImport } from './routes/api/decap/callback'
+import { Route as ApiDecapAuthRouteImport } from './routes/api/decap/auth'
 
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
@@ -22,31 +24,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiDecapCallbackRoute = ApiDecapCallbackRouteImport.update({
+  id: '/api/decap/callback',
+  path: '/api/decap/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDecapAuthRoute = ApiDecapAuthRouteImport.update({
+  id: '/api/decap/auth',
+  path: '/api/decap/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/api/decap/auth': typeof ApiDecapAuthRoute
+  '/api/decap/callback': typeof ApiDecapCallbackRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/api/decap/auth': typeof ApiDecapAuthRoute
+  '/api/decap/callback': typeof ApiDecapCallbackRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/api/decap/auth': typeof ApiDecapAuthRoute
+  '/api/decap/callback': typeof ApiDecapCallbackRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin'
+  fullPaths: '/' | '/admin' | '/api/decap/auth' | '/api/decap/callback'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin'
-  id: '__root__' | '/' | '/admin'
+  to: '/' | '/admin' | '/api/decap/auth' | '/api/decap/callback'
+  id: '__root__' | '/' | '/admin' | '/api/decap/auth' | '/api/decap/callback'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
+  ApiDecapAuthRoute: typeof ApiDecapAuthRoute
+  ApiDecapCallbackRoute: typeof ApiDecapCallbackRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +85,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/decap/callback': {
+      id: '/api/decap/callback'
+      path: '/api/decap/callback'
+      fullPath: '/api/decap/callback'
+      preLoaderRoute: typeof ApiDecapCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/decap/auth': {
+      id: '/api/decap/auth'
+      path: '/api/decap/auth'
+      fullPath: '/api/decap/auth'
+      preLoaderRoute: typeof ApiDecapAuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
+  ApiDecapAuthRoute: ApiDecapAuthRoute,
+  ApiDecapCallbackRoute: ApiDecapCallbackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -2,8 +2,8 @@ backend:
   name: github
   repo: NickBossz/portfolio-nubinho
   branch: main
-  base_url: /api/decap
-  auth_endpoint: auth
+  base_url: https://portfolio-nubinho.vercel.app
+  auth_endpoint: api/decap/auth
   squash_merges: true
 
 media_folder: public/uploads

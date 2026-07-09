@@ -38,6 +38,16 @@ Crie um OAuth App em GitHub > Settings > Developer settings > OAuth Apps:
 - Homepage URL: `https://SEU-DOMINIO`
 - Authorization callback URL: `https://SEU-DOMINIO/api/decap/callback`
 
+No `public/admin/config.yml`, mantenha:
+
+```yaml
+base_url: https://SEU-DOMINIO
+auth_endpoint: api/decap/auth
+```
+
+O `base_url` precisa ser somente o dominio, sem `/api/decap`, porque o Decap
+confere a origem da janela de login antes de aceitar o token.
+
 Depois adicione estas variaveis no projeto da Vercel:
 
 ```text

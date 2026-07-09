@@ -16,12 +16,12 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <div className="text-mono text-white/40">ERROR / 404</div>
+        <div className="text-mono text-white/40">404</div>
         <h1 className="text-display mt-4 text-8xl">404</h1>
-        <p className="mt-4 text-white/60">Este frame não existe na timeline.</p>
+        <p className="mt-4 text-white/60">Essa página não foi encontrada.</p>
         <div className="mt-8">
           <Link to="/" className="text-mono border border-white/40 px-5 py-3 hover:border-white">
-            VOLTAR AO INÍCIO →
+            VOLTAR AO INÍCIO
           </Link>
         </div>
       </div>
@@ -39,7 +39,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-display text-4xl">Este frame não carregou.</h1>
+        <h1 className="text-display text-4xl">Algo não carregou.</h1>
         <p className="mt-2 text-sm text-white/60">Tente novamente ou volte ao início.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -62,11 +62,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Editor de Vídeos — Portfólio Cinematográfico" },
-      { name: "description", content: "Portfólio de edição de vídeo, motion design e color grading. Projetos cinematográficos para marcas, criadores e produtoras." },
-      { name: "author", content: "Editor / Frames" },
-      { property: "og:title", content: "Editor de Vídeos — Portfólio Cinematográfico" },
-      { property: "og:description", content: "Edição, motion e color grading com estética cinematográfica." },
+      { title: "Nubinho - Editor de Gameplays" },
+      { name: "description", content: "Portfólio do Nubinho, editor focado em gameplays, vídeos longos, vídeos curtos, motion design e thumbnails." },
+      { name: "author", content: "Nubinho" },
+      { property: "og:title", content: "Nubinho - Editor de Gameplays" },
+      { property: "og:description", content: "Edição de vídeos de gameplay com foco em ritmo, retenção e conteúdo mais atrativo." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

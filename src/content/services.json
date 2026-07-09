@@ -1,0 +1,8 @@
+{
+  "services": [
+    { "number": "01", "title": "Vídeos longos", "description": "Edição para YouTube com foco em ritmo, retenção e clareza da gameplay." },
+    { "number": "02", "title": "Vídeos curtos", "description": "Shorts, Reels e TikToks com gancho rápido, cortes diretos e legenda quando fizer sentido." },
+    { "number": "03", "title": "Motion design", "description": "Textos animados, transições e elementos de tela para reforçar momentos importantes." },
+    { "number": "04", "title": "Thumbnails", "description": "Composições mais chamativas e fáceis de entender para conteúdo gamer." }
+  ]
+}

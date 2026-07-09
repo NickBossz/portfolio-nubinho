@@ -1,0 +1,18 @@
+{
+  "name": "Nubinho",
+  "headline": "Editor de gameplay",
+  "heroSubtitle": "Foco em conteúdo de gameplays. Faço seus vídeos ficarem mais atrativos, com ritmo, cortes e detalhes que prendem o telespectador do começo ao fim.",
+  "aboutEyebrow": "Quem sou eu",
+  "aboutTitle": "Sobre mim",
+  "aboutParagraphs": [
+    "Trabalho com edição de vídeo para YouTube há 2 anos, também atuando como thumbnail maker. Me considero um editor semiprofissional, não pelo título, mas pelo resultado.",
+    "Edito conteúdos de gameplay com foco em retenção, ritmo, cortes no tempo certo, motion e thumbnails que convertem. A ideia é simples: deixar o vídeo mais gostoso de assistir e mais difícil de abandonar."
+  ],
+  "stats": [
+    { "value": "2+", "label": "anos de exp." },
+    { "value": "Gameplay", "label": "foco principal" },
+    { "value": "Adobe Premiere", "label": "workflow" }
+  ],
+  "focus": "Gameplays, vídeos longos, vídeos curtos e motion design.",
+  "heroImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=2200&q=85"
+}

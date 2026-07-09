@@ -1,0 +1,166 @@
+backend:
+  name: github
+  repo: NickBossz/portfolio-nubinho
+  branch: main
+  squash_merges: true
+
+media_folder: public/uploads
+public_folder: /uploads
+publish_mode: editorial_workflow
+locale: pt
+
+collections:
+  - name: projects
+    label: "01 - Portfólio"
+    label_singular: Projeto
+    description: "Adicione, edite, ordene e oculte os projetos que aparecem na seção Portfólio."
+    folder: src/content/projects
+    create: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{order}} - {{title}} ({{status}})"
+    fields:
+      - label: "Publicação"
+        name: status
+        widget: select
+        default: published
+        hint: "Publicado aparece no site. Rascunho fica salvo, mas não aparece."
+        options:
+          - { label: Publicado, value: published }
+          - { label: Rascunho, value: draft }
+      - { label: "Ordem de exibição", name: order, widget: number, value_type: int, default: 999, hint: "Menor número aparece primeiro. Exemplo: 1, 2, 3." }
+      - { label: "Projeto em destaque", name: featured, widget: boolean, default: false, hint: "Aparece no bloco grande acima da grade." }
+      - { label: "Título", name: title, widget: string, hint: "Nome visível do projeto." }
+      - { label: "Slug do arquivo", name: slug, widget: string, hint: "Use letras minúsculas, números e hífens. Exemplo: gameplay-longo." }
+      - { label: "Cliente", name: client, widget: string, required: false, hint: "Aparece dentro do detalhe do projeto." }
+      - { label: "Ano", name: year, widget: string, hint: "Aparece no topo do detalhe do projeto." }
+      - label: "Categoria"
+        name: category
+        widget: select
+        hint: "Define em qual aba o projeto aparece."
+        options: ["Motion design", "Vídeos longos", "Vídeos curtos"]
+      - { label: "Duração", name: duration, widget: string, required: false, hint: "Exemplo: 00:27, 18:32 ou thumb." }
+      - { label: "Descrição curta", name: shortDescription, widget: text, hint: "Aparece nos cards e no destaque." }
+      - { label: "Descrição completa", name: fullDescription, widget: text, hint: "Aparece quando o visitante abre o projeto." }
+      - { label: "Thumbnail", name: thumbnail, widget: image, hint: "Imagem principal do card e do detalhe." }
+      - { label: "Vídeo curto de prévia", name: coverVideo, widget: file, required: false, hint: "Opcional. Se preencher, aparece no lugar da thumbnail como prévia." }
+      - { label: "Link do vídeo", name: videoUrl, widget: string, required: false, hint: "Opcional. Aparece como botão 'Assistir vídeo' no detalhe." }
+      - label: "Orientação do vídeo"
+        name: orientation
+        widget: select
+        hint: "Controla o formato visual do card."
+        options:
+          - { label: Paisagem, value: landscape }
+          - { label: Retrato, value: portrait }
+          - { label: Quadrado, value: square }
+      - label: "Funções realizadas"
+        name: role
+        widget: list
+        summary: "{{fields.item}}"
+        hint: "Aparece no detalhe do projeto, em Função."
+        field: { label: Função, name: item, widget: string }
+      - label: "Ferramentas utilizadas"
+        name: tools
+        widget: list
+        summary: "{{fields.item}}"
+        hint: "Aparece no detalhe do projeto, em Ferramentas."
+        field: { label: Ferramenta, name: item, widget: string }
+      - label: "Serviços realizados"
+        name: services
+        widget: list
+        summary: "{{fields.item}}"
+        hint: "Aparece no detalhe do projeto, em Serviços."
+        field: { label: Serviço, name: item, widget: string }
+      - { label: "Desafio", name: challenge, widget: text, required: false, hint: "Aparece no detalhe do projeto." }
+      - { label: "Solução", name: solution, widget: text, required: false, hint: "Aparece no detalhe do projeto." }
+      - label: "Resultados"
+        name: results
+        widget: list
+        summary: "{{fields.item}}"
+        hint: "Aparece no detalhe do projeto."
+        field: { label: Resultado, name: item, widget: string }
+      - label: "Galeria de imagens"
+        name: gallery
+        widget: list
+        required: false
+        summary: "{{fields.image}}"
+        hint: "Opcional. Aparece no detalhe do projeto abaixo dos textos."
+        field: { label: Imagem, name: image, widget: image }
+      - label: "Créditos"
+        name: credits
+        widget: list
+        required: false
+        hint: "Opcional. Aparece no detalhe do projeto."
+        fields:
+          - { label: Função, name: role, widget: string }
+          - { label: Nome, name: name, widget: string }
+
+  - name: home_about
+    label: "02 - Início e Sobre"
+    files:
+      - label: "Textos principais"
+        name: editor
+        file: src/content/editor.json
+        format: json
+        fields:
+          - { label: "Nome no topo/hero/rodapé", name: name, widget: string }
+          - { label: "Chamada pequena do hero", name: headline, widget: string }
+          - { label: "Subtítulo do hero", name: heroSubtitle, widget: text }
+          - { label: "Imagem de fundo do hero", name: heroImage, widget: image }
+          - { label: "Chamada pequena do Sobre", name: aboutEyebrow, widget: string }
+          - { label: "Título do Sobre", name: aboutTitle, widget: string }
+          - label: "Parágrafos do Sobre"
+            name: aboutParagraphs
+            widget: list
+            summary: "{{fields.paragraph}}"
+            field: { label: Parágrafo, name: paragraph, widget: text }
+          - label: "Números do Sobre"
+            name: stats
+            widget: list
+            max: 3
+            fields:
+              - { label: Valor, name: value, widget: string, hint: "Exemplo: 2+, Gameplay, Adobe Premiere." }
+              - { label: Legenda, name: label, widget: string, hint: "Exemplo: anos de exp., foco principal, workflow." }
+          - { label: "Texto de foco no rodapé", name: focus, widget: text }
+
+  - name: services
+    label: "03 - Serviços"
+    files:
+      - label: "Cards de serviços"
+        name: services
+        file: src/content/services.json
+        format: json
+        fields:
+          - label: Serviços
+            name: services
+            widget: list
+            summary: "{{fields.number}} - {{fields.title}}"
+            fields:
+              - { label: Número, name: number, widget: string, hint: "Exemplo: 01" }
+              - { label: Título, name: title, widget: string }
+              - { label: Descrição, name: description, widget: text }
+
+  - name: contact
+    label: "04 - Contato e Redes"
+    files:
+      - label: "Bloco de contato"
+        name: contact
+        file: src/content/contact.json
+        format: json
+        fields:
+          - { label: "Chamada pequena", name: eyebrow, widget: string }
+          - { label: "Título", name: title, widget: string }
+          - { label: "Descrição", name: description, widget: text }
+          - { label: "Texto do botão", name: buttonLabel, widget: string }
+      - label: "Links e dados de contato"
+        name: socials
+        file: src/content/socials.json
+        format: json
+        fields:
+          - { label: "Link do Instagram", name: instagram, widget: string }
+          - { label: "Texto do Instagram", name: instagramLabel, widget: string }
+          - { label: "Discord", name: discord, widget: string }
+          - { label: "WhatsApp visível", name: whatsapp, widget: string }
+          - { label: "Link do WhatsApp", name: whatsappHref, widget: string, hint: "Use formato https://wa.me/55DDDNUMERO" }

@@ -93,31 +93,92 @@ function readCookie(cookieHeader: string | null, name: string) {
 
 function renderLoginScript(message: string, content: unknown) {
   const payload = `authorization:github:${message}:${JSON.stringify(content)}`;
+  const isSuccess = message === "success";
+  const visibleMessage = isSuccess
+    ? "Login autorizado. Voce ja pode voltar para o painel."
+    : `Erro no login: ${String(content)}`;
 
   return `<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Autenticando GitHub</title>
+    <style>
+      body {
+        align-items: center;
+        background: #090909;
+        color: #f5f5f5;
+        display: flex;
+        font-family: Arial, sans-serif;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 24px;
+        text-align: center;
+      }
+
+      main {
+        max-width: 420px;
+      }
+
+      p {
+        color: #b8b8b8;
+        line-height: 1.5;
+      }
+    </style>
   </head>
   <body>
+    <main>
+      <h1>${escapeHtml(visibleMessage)}</h1>
+      <p>${isSuccess ? "Se esta janela nao fechar sozinha, volte para a aba do admin." : "Revise as variaveis de ambiente do OAuth na Vercel e tente entrar novamente pelo painel."}</p>
+    </main>
     <script>
       (function () {
-        function receiveMessage(event) {
-          if (!window.opener || event.source !== window.opener) {
-            return;
+        var payload = ${JSON.stringify(payload)};
+        var attempts = 0;
+
+        function notify(targetOrigin) {
+          if (window.opener) {
+            window.opener.postMessage(payload, targetOrigin || "*");
           }
 
-          window.opener.postMessage(${JSON.stringify(payload)}, event.origin);
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage(payload, targetOrigin || "*");
+          }
         }
 
-        window.addEventListener("message", receiveMessage, false);
+        window.addEventListener("message", function (event) {
+          notify(event.origin);
+        }, false);
 
         if (window.opener) {
           window.opener.postMessage("authorizing:github", "*");
         }
+
+        notify("*");
+
+        var interval = window.setInterval(function () {
+          attempts += 1;
+          notify("*");
+
+          if (attempts >= 20) {
+            window.clearInterval(interval);
+          }
+        }, 500);
+
+        ${isSuccess ? "window.setTimeout(function () { window.close(); }, 1200);" : ""}
       })();
     </script>
   </body>
 </html>`;
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }

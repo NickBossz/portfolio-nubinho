@@ -5,9 +5,13 @@ export const Route = createFileRoute("/api/decap/auth")({
     handlers: {
       GET: async ({ request }) => {
         const clientId = process.env.GITHUB_OAUTH_CLIENT_ID;
+        const clientSecret = process.env.GITHUB_OAUTH_CLIENT_SECRET;
 
-        if (!clientId) {
-          return new Response("Missing GITHUB_OAUTH_CLIENT_ID", { status: 500 });
+        if (!clientId || !clientSecret) {
+          return new Response(
+            "Missing GitHub OAuth environment variables. Configure GITHUB_OAUTH_CLIENT_ID and GITHUB_OAUTH_CLIENT_SECRET in Vercel, then redeploy.",
+            { status: 500 },
+          );
         }
 
         const requestUrl = new URL(request.url);

@@ -5,6 +5,7 @@ export interface ProjectCredit {
 
 export interface Project {
   id: string;
+  slug: string;
   title: string;
   client: string;
   year: string;
@@ -25,6 +26,8 @@ export interface Project {
   results: string[];
   gallery: string[];
   credits: ProjectCredit[];
+  order: number;
+  status: "published" | "draft";
 }
 
 export interface Testimonial {

@@ -35,10 +35,9 @@ export function Header() {
           scrolled ? "border-white/10 bg-black/60 backdrop-blur-md" : "border-transparent"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-6 md:h-20 md:px-10">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-[4.5rem] md:px-8">
           <a href="#top" className="flex items-center gap-3" data-cursor="home">
-            <span className="rec-dot inline-block h-2 w-2 rounded-full bg-red-500" />
-            <span className="text-mono text-[11px] tracking-[0.2em]">EDITOR / FRAMES</span>
+            <span className="text-display text-2xl leading-none text-white">Nubinho</span>
           </a>
 
           <nav className="hidden items-center gap-10 md:flex">
@@ -46,7 +45,7 @@ export function Header() {
               <a
                 key={l.href}
                 href={l.href}
-                data-cursor="→"
+                data-cursor="go"
                 className="text-mono text-[11px] text-white/70 transition hover:text-white"
               >
                 {l.label}
@@ -60,7 +59,7 @@ export function Header() {
               data-cursor="talk"
               className="hidden text-mono text-[11px] tracking-[0.15em] border border-white/30 px-4 py-2 transition hover:border-white hover:bg-white hover:text-black md:inline-block"
             >
-              SOLICITAR ORÇAMENTO
+              CONTRATAR EDITOR
             </a>
             <button
               onClick={() => setOpen(true)}
@@ -87,7 +86,7 @@ export function Header() {
                 <X size={22} />
               </button>
             </div>
-            <nav className="flex flex-1 flex-col items-start justify-center gap-6 px-6">
+            <nav className="flex flex-1 flex-col items-start justify-center gap-5 px-6">
               {links.map((l, i) => (
                 <motion.a
                   key={l.href}
@@ -96,7 +95,7 @@ export function Header() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * i }}
-                  className="text-display text-6xl"
+                  className="text-display text-5xl"
                 >
                   {l.label}
                 </motion.a>
@@ -106,7 +105,7 @@ export function Header() {
                 onClick={() => setOpen(false)}
                 className="mt-6 text-mono border border-white/40 px-4 py-3"
               >
-                SOLICITAR ORÇAMENTO
+                CONTRATAR EDITOR
               </a>
             </nav>
           </motion.div>

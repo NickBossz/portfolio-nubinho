@@ -14,7 +14,7 @@ export function Projects() {
   const featured = all.find((p) => p.featured) ?? all[0];
   const filtered = useMemo(
     () => (filter === "Todos" ? all : all.filter((p) => p.category === filter)),
-    [filter, all]
+    [filter, all],
   );
 
   const activeIdx = active ? filtered.findIndex((p) => p.id === active.id) : -1;
@@ -31,10 +31,13 @@ export function Projects() {
           <div>
             <div className="text-mono text-white/50">Portfólio</div>
             <h2 className="text-display mt-2 text-4xl md:text-6xl">
-              Projetos <span className="italic font-serif normal-case tracking-normal">selecionados</span>
+              Projetos{" "}
+              <span className="italic font-serif normal-case tracking-normal">selecionados</span>
             </h2>
           </div>
-          <div className="text-mono text-white/50">{filtered.length.toString().padStart(2, "0")} projetos</div>
+          <div className="text-mono text-white/50">
+            {filtered.length.toString().padStart(2, "0")} projetos
+          </div>
         </div>
 
         {featured && (
@@ -83,7 +86,7 @@ export function Projects() {
           })}
         </div>
 
-        <motion.div layout className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <motion.div layout className="grid grid-cols-1 items-start gap-4 md:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {filtered.map((p, i) => (
               <motion.button
@@ -109,7 +112,10 @@ export function Projects() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/5 to-transparent" />
                   <div className="absolute left-4 top-4 text-mono text-white/70">{p.category}</div>
                   <div className="absolute bottom-4 left-4 right-4">
-                    <motion.h3 layoutId={`title-${p.id}`} className="text-display text-3xl md:text-4xl">
+                    <motion.h3
+                      layoutId={`title-${p.id}`}
+                      className="text-display text-3xl md:text-4xl"
+                    >
                       {p.title}
                     </motion.h3>
                     <div className="mt-2 flex items-center justify-between gap-4 text-mono text-white/60">
@@ -140,8 +146,18 @@ export function Projects() {
                   {active.category} / {active.year} / {active.duration}
                 </span>
                 <div className="flex items-center gap-3">
-                  <button onClick={() => nav(-1)} className="hidden text-mono text-white/60 hover:text-white md:inline">Anterior</button>
-                  <button onClick={() => nav(1)} className="hidden text-mono text-white/60 hover:text-white md:inline">Próximo</button>
+                  <button
+                    onClick={() => nav(-1)}
+                    className="hidden text-mono text-white/60 hover:text-white md:inline"
+                  >
+                    Anterior
+                  </button>
+                  <button
+                    onClick={() => nav(1)}
+                    className="hidden text-mono text-white/60 hover:text-white md:inline"
+                  >
+                    Próximo
+                  </button>
                   <button
                     onClick={() => setActive(null)}
                     className="flex items-center gap-2 text-mono border border-white/30 px-3 py-1.5 hover:border-white"
@@ -152,8 +168,14 @@ export function Projects() {
                 </div>
               </div>
 
-              <motion.div layoutId={`card-${active.id}`} className="mx-auto max-w-6xl px-5 py-8 md:px-8">
-                <motion.div layoutId={`img-${active.id}`} className="relative aspect-video overflow-hidden border border-white/15">
+              <motion.div
+                layoutId={`card-${active.id}`}
+                className="mx-auto max-w-6xl px-5 py-8 md:px-8"
+              >
+                <motion.div
+                  layoutId={`img-${active.id}`}
+                  className="relative aspect-video overflow-hidden border border-white/15"
+                >
                   <ProjectMedia project={active} className="h-full w-full object-cover" controls />
                 </motion.div>
 
@@ -171,7 +193,9 @@ export function Projects() {
                   className="mt-8 grid gap-8 md:grid-cols-[2fr_1fr]"
                 >
                   <div className="space-y-6">
-                    <p className="text-base leading-relaxed text-white/80 md:text-lg">{active.fullDescription}</p>
+                    <p className="text-base leading-relaxed text-white/80 md:text-lg">
+                      {active.fullDescription}
+                    </p>
 
                     <div>
                       <div className="text-mono text-white/50">Desafio</div>
@@ -185,7 +209,10 @@ export function Projects() {
                       <div className="text-mono text-white/50">Resultados</div>
                       <ul className="mt-2 space-y-1 text-white/75">
                         {active.results.map((r) => (
-                          <li key={r} className="flex gap-2"><span className="text-white/40">-</span>{r}</li>
+                          <li key={r} className="flex gap-2">
+                            <span className="text-white/40">-</span>
+                            {r}
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -214,15 +241,27 @@ export function Projects() {
                     </div>
                     <div>
                       <div className="text-mono text-white/50">Função</div>
-                      <ul className="mt-1 space-y-0.5">{active.role.map((r) => <li key={r}>{r}</li>)}</ul>
+                      <ul className="mt-1 space-y-0.5">
+                        {active.role.map((r) => (
+                          <li key={r}>{r}</li>
+                        ))}
+                      </ul>
                     </div>
                     <div>
                       <div className="text-mono text-white/50">Ferramentas</div>
-                      <ul className="mt-1 space-y-0.5">{active.tools.map((t) => <li key={t}>{t}</li>)}</ul>
+                      <ul className="mt-1 space-y-0.5">
+                        {active.tools.map((t) => (
+                          <li key={t}>{t}</li>
+                        ))}
+                      </ul>
                     </div>
                     <div>
                       <div className="text-mono text-white/50">Serviços</div>
-                      <ul className="mt-1 space-y-0.5">{active.services.map((s) => <li key={s}>{s}</li>)}</ul>
+                      <ul className="mt-1 space-y-0.5">
+                        {active.services.map((s) => (
+                          <li key={s}>{s}</li>
+                        ))}
+                      </ul>
                     </div>
                     {active.credits.length > 0 && (
                       <div>
@@ -273,10 +312,25 @@ function ProjectMedia({
   className?: string;
   controls?: boolean;
 }) {
-  if (project.coverVideo) {
+  const videoUrl = project.coverVideo || (controls ? project.videoUrl : "");
+  const embed = getVideoEmbed(videoUrl, controls);
+
+  if (embed) {
+    return (
+      <iframe
+        src={embed}
+        title={project.title}
+        className={`${className ?? ""} border-0 ${controls ? "" : "pointer-events-none"}`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      />
+    );
+  }
+
+  if (videoUrl) {
     return (
       <video
-        src={project.coverVideo}
+        src={videoUrl}
         poster={project.thumbnail}
         className={className}
         controls={controls}
@@ -289,4 +343,66 @@ function ProjectMedia({
   }
 
   return <img src={project.thumbnail} alt={project.title} className={className} />;
+}
+
+function getVideoEmbed(rawUrl: string | undefined, controls: boolean) {
+  if (!rawUrl) return "";
+
+  const youtubeId = getYouTubeId(rawUrl);
+  if (youtubeId) {
+    const params = controls
+      ? "rel=0&modestbranding=1&playsinline=1"
+      : `autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&rel=0&modestbranding=1&playsinline=1`;
+
+    return `https://www.youtube.com/embed/${youtubeId}?${params}`;
+  }
+
+  const vimeoId = getVimeoId(rawUrl);
+  if (vimeoId) {
+    const params = controls
+      ? "title=0&byline=0&portrait=0"
+      : "autoplay=1&muted=1&loop=1&background=1";
+
+    return `https://player.vimeo.com/video/${vimeoId}?${params}`;
+  }
+
+  return "";
+}
+
+function getYouTubeId(rawUrl: string) {
+  try {
+    const url = new URL(rawUrl, "https://portfolio.local");
+    const host = url.hostname.replace(/^www\./, "");
+
+    if (host === "youtu.be") {
+      return url.pathname.split("/").filter(Boolean)[0] ?? "";
+    }
+
+    if (!host.endsWith("youtube.com")) return "";
+
+    if (url.pathname === "/watch") {
+      return url.searchParams.get("v") ?? "";
+    }
+
+    const [, route, id] = url.pathname.split("/");
+    return ["embed", "shorts", "live"].includes(route) ? (id ?? "") : "";
+  } catch {
+    return "";
+  }
+}
+
+function getVimeoId(rawUrl: string) {
+  try {
+    const url = new URL(rawUrl, "https://portfolio.local");
+    const host = url.hostname.replace(/^www\./, "");
+
+    if (!host.endsWith("vimeo.com")) return "";
+
+    const parts = url.pathname.split("/").filter(Boolean);
+    const id = parts[0] === "video" ? parts[1] : parts[0];
+
+    return /^\d+$/.test(id ?? "") ? id : "";
+  } catch {
+    return "";
+  }
 }

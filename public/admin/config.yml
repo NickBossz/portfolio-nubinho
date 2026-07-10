@@ -32,23 +32,80 @@ collections:
         options:
           - { label: Publicado, value: published }
           - { label: Rascunho, value: draft }
-      - { label: "Ordem de exibição", name: order, widget: number, value_type: int, default: 999, hint: "Menor número aparece primeiro. Exemplo: 1, 2, 3." }
-      - { label: "Projeto em destaque", name: featured, widget: boolean, default: false, hint: "Aparece no bloco grande acima da grade." }
+      - {
+          label: "Ordem de exibição",
+          name: order,
+          widget: number,
+          value_type: int,
+          default: 999,
+          hint: "Menor número aparece primeiro. Exemplo: 1, 2, 3.",
+        }
+      - {
+          label: "Projeto em destaque",
+          name: featured,
+          widget: boolean,
+          default: false,
+          hint: "Aparece no bloco grande acima da grade.",
+        }
       - { label: "Título", name: title, widget: string, hint: "Nome visível do projeto." }
-      - { label: "Slug do arquivo", name: slug, widget: string, hint: "Use letras minúsculas, números e hífens. Exemplo: gameplay-longo." }
-      - { label: "Cliente", name: client, widget: string, required: false, hint: "Aparece dentro do detalhe do projeto." }
+      - {
+          label: "Slug do arquivo",
+          name: slug,
+          widget: string,
+          hint: "Use letras minúsculas, números e hífens. Exemplo: gameplay-longo.",
+        }
+      - {
+          label: "Cliente",
+          name: client,
+          widget: string,
+          required: false,
+          hint: "Aparece dentro do detalhe do projeto.",
+        }
       - { label: "Ano", name: year, widget: string, hint: "Aparece no topo do detalhe do projeto." }
       - label: "Categoria"
         name: category
         widget: select
         hint: "Define em qual aba o projeto aparece."
         options: ["Motion design", "Vídeos longos", "Vídeos curtos"]
-      - { label: "Duração", name: duration, widget: string, required: false, hint: "Exemplo: 00:27, 18:32 ou thumb." }
-      - { label: "Descrição curta", name: shortDescription, widget: text, hint: "Aparece nos cards e no destaque." }
-      - { label: "Descrição completa", name: fullDescription, widget: text, hint: "Aparece quando o visitante abre o projeto." }
-      - { label: "Thumbnail", name: thumbnail, widget: image, hint: "Imagem principal do card e do detalhe." }
-      - { label: "Vídeo curto de prévia", name: coverVideo, widget: file, required: false, hint: "Opcional. Se preencher, aparece no lugar da thumbnail como prévia." }
-      - { label: "Link do vídeo", name: videoUrl, widget: string, required: false, hint: "Opcional. Aparece como botão 'Assistir vídeo' no detalhe." }
+      - {
+          label: "Duração",
+          name: duration,
+          widget: string,
+          required: false,
+          hint: "Exemplo: 00:27, 18:32 ou thumb.",
+        }
+      - {
+          label: "Descrição curta",
+          name: shortDescription,
+          widget: text,
+          hint: "Aparece nos cards e no destaque.",
+        }
+      - {
+          label: "Descrição completa",
+          name: fullDescription,
+          widget: text,
+          hint: "Aparece quando o visitante abre o projeto.",
+        }
+      - {
+          label: "Thumbnail",
+          name: thumbnail,
+          widget: image,
+          hint: "Imagem principal do card e do detalhe.",
+        }
+      - {
+          label: "Vídeo curto de prévia",
+          name: coverVideo,
+          widget: string,
+          required: false,
+          hint: "Opcional. Aceita URL do YouTube/Vimeo ou arquivo direto .mp4/.webm. Aparece no lugar da thumbnail como prévia.",
+        }
+      - {
+          label: "Link do vídeo",
+          name: videoUrl,
+          widget: string,
+          required: false,
+          hint: "Opcional. Aceita YouTube/Vimeo e aparece como player no detalhe do projeto.",
+        }
       - label: "Orientação do vídeo"
         name: orientation
         widget: select
@@ -75,8 +132,20 @@ collections:
         summary: "{{fields.item}}"
         hint: "Aparece no detalhe do projeto, em Serviços."
         field: { label: Serviço, name: item, widget: string }
-      - { label: "Desafio", name: challenge, widget: text, required: false, hint: "Aparece no detalhe do projeto." }
-      - { label: "Solução", name: solution, widget: text, required: false, hint: "Aparece no detalhe do projeto." }
+      - {
+          label: "Desafio",
+          name: challenge,
+          widget: text,
+          required: false,
+          hint: "Aparece no detalhe do projeto.",
+        }
+      - {
+          label: "Solução",
+          name: solution,
+          widget: text,
+          required: false,
+          hint: "Aparece no detalhe do projeto.",
+        }
       - label: "Resultados"
         name: results
         widget: list
@@ -123,8 +192,18 @@ collections:
             widget: list
             max: 3
             fields:
-              - { label: Valor, name: value, widget: string, hint: "Exemplo: 2+, Gameplay, Adobe Premiere." }
-              - { label: Legenda, name: label, widget: string, hint: "Exemplo: anos de exp., foco principal, workflow." }
+              - {
+                  label: Valor,
+                  name: value,
+                  widget: string,
+                  hint: "Exemplo: 2+, Gameplay, Adobe Premiere.",
+                }
+              - {
+                  label: Legenda,
+                  name: label,
+                  widget: string,
+                  hint: "Exemplo: anos de exp., foco principal, workflow.",
+                }
           - { label: "Texto de foco no rodapé", name: focus, widget: text }
 
   - name: services
@@ -165,4 +244,9 @@ collections:
           - { label: "Texto do Instagram", name: instagramLabel, widget: string }
           - { label: "Discord", name: discord, widget: string }
           - { label: "WhatsApp visível", name: whatsapp, widget: string }
-          - { label: "Link do WhatsApp", name: whatsappHref, widget: string, hint: "Use formato https://wa.me/55DDDNUMERO" }
+          - {
+              label: "Link do WhatsApp",
+              name: whatsappHref,
+              widget: string,
+              hint: "Use formato https://wa.me/55DDDNUMERO",
+            }

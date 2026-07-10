@@ -1,18 +1,18 @@
 {
-  "shortDescription": "Vídeo longo com cortes limpos, ritmo de narrativa e momentos de respiro.",
+  "shortDescription": "Musica ao meu amigo calvo san",
   "challenge": "Transformar uma gravação extensa em um vídeo com ritmo.",
   "coverVideo": "https://www.youtube.com/watch?v=VbhtsJIQGc4",
-  "slug": "gameplay-longo",
+  "slug": "musica-bacana",
   "client": "YouTube",
-  "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1600&q=85",
-  "fullDescription": "Edição long-form para gameplay com foco em manter o público assistindo: abertura mais forte, cortes de silêncio, organização dos melhores momentos e ritmo constante.",
+  "thumbnail": "/uploads/captura-de-tela-2026-07-09-220947.png",
+  "fullDescription": "MUSICA ULTRAMENTE PROJETADA PARA O MEU AMIGO CALVO SAN",
   "featured": false,
   "order": 2,
   "orientation": "landscape",
   "gallery": [],
   "status": "published",
-  "duration": "18:32",
-  "videoUrl": "https://player.vimeo.com/video/59777392",
+  "duration": "2:22",
+  "videoUrl": "https://www.youtube.com/watch?v=VbhtsJIQGc4",
   "role": [
     "Edição",
     "Ritmo",
@@ -23,7 +23,7 @@
     "Narrativa mais clara",
     "Assistência mais confortável"
   ],
-  "title": "Gameplay Longo",
+  "title": "Calvo san é Tsundere",
   "solution": "Seleção dos melhores trechos, cortes de repetição e uma estrutura simples de progressão.",
   "credits": [
     {

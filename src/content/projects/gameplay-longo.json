@@ -1,18 +1,18 @@
 {
-  "shortDescription": "Musica ao meu amigo calvo san",
-  "challenge": "Transformar uma gravação extensa em um vídeo com ritmo.",
-  "coverVideo": "https://www.youtube.com/watch?v=VbhtsJIQGc4",
-  "slug": "musica-bacana",
+  "shortDescription": "Video utilizado para treinar edição",
+  "challenge": "",
+  "coverVideo": "https://www.youtube.com/watch?v=2cznLHvL7NY",
+  "slug": "Minecraft-terror",
   "client": "YouTube",
-  "thumbnail": "/uploads/captura-de-tela-2026-07-09-220947.png",
-  "fullDescription": "MUSICA ULTRAMENTE PROJETADA PARA O MEU AMIGO CALVO SAN",
+  "thumbnail": "https://i9.ytimg.com/vi/2cznLHvL7NY/mqdefault.jpg?sqp=CMDkz9IG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEAgUShlMA8=&rs=AOn4CLBIRmMqbnjnn_WUodM8BYCsQ4i5Kw",
+  "fullDescription": "Video utilizado para treinar edição, porem seguindo o contexto e a estitica do video, complimentando algumas diferenças.",
   "featured": false,
   "order": 2,
   "orientation": "landscape",
   "gallery": [],
   "status": "published",
-  "duration": "2:22",
-  "videoUrl": "https://www.youtube.com/watch?v=VbhtsJIQGc4",
+  "duration": "",
+  "videoUrl": "https://www.youtube.com/watch?v=2cznLHvL7NY",
   "role": [
     "Edição",
     "Ritmo",
@@ -23,7 +23,7 @@
     "Narrativa mais clara",
     "Assistência mais confortável"
   ],
-  "title": "Calvo san é Tsundere",
+  "title": "Minecraft terror 5 minutos de video",
   "solution": "Seleção dos melhores trechos, cortes de repetição e uma estrutura simples de progressão.",
   "credits": [
     {
